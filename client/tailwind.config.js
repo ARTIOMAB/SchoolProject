@@ -10,6 +10,7 @@ export default {
         contentText: "#7D7D7D",
         boardColor: "#00A8A8",
         defaultGray: "#333336",
+        cardsColor: "#8AB3B3",
       },
     },
   },

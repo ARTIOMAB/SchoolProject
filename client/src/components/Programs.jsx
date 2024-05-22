@@ -5,12 +5,11 @@ function Programs() {
     const navigate = useNavigate()
     return (
         <>
-            <div className='programs-container bg-boardColor p-[1%] rounded-[20px] w-[70%] m-auto'>
+            <div className='programs-container bg-boardColor p-[1%] rounded-[20px] w-[90%] m-auto'>
+                <h2 className='board-heading text-[2rem]'>התוכניות שלנו</h2>
                 <div className="row flex items-center justify-center gap-[12vw] p-[4%]">
-
                     <div className="card div w-[200px] h-[200px] rounded-full p-[0px]">
                         <button onClick={() => { navigate("/program_B") }}>
-
                             <div className='card-body p-[0px]'>
                                 <img
                                     className='w-[200px] h-[200px] rounded-full p-[0px]'
@@ -18,10 +17,8 @@ function Programs() {
                                     alt="The image was not found" />
                                 <h5>כיתות ג' מחוננים</h5>
                             </div>
-
                         </button>
                     </div>
-
 
                     <div className="card div w-[200px] h-[200px] rounded-full p-[0px]">
                         <button onClick={() => { navigate("/program_A") }}>
@@ -35,7 +32,6 @@ function Programs() {
                         </button>
                     </div>
                 </div>
-
             </div>
         </>
     )

@@ -10,7 +10,7 @@ function Footer() {
             <footer>
                 <div className='footer-container h-[10vh]'>
                     <div className="footer-main flex items-center justify-center gap-[7vw] ">
-                        <h3 className='text-[1.5rem] text-mainText'>מרכז מו"ח- בית הספר למחוננים חריש</h3>
+                        <h3 className='text-[1.5rem] text-mainText'>מרכז מו"ח- מרכז המחוננים והמצטיינים </h3>
                         <div className='footer-social flex items-center justify-center gap-[2vw]'>
                             <a href="https://www.instagram.com/" target='_blank'>
                                 <img className='w-[25px] h-[25px]' src={instagramLogo} alt="The image was not found" />
