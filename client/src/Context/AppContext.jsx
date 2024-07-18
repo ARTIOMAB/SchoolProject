@@ -1,61 +1,116 @@
 import { createContext, useState } from "react";
-import image1 from "../assets/image1.jpg";
-import image2 from "../assets/image2.jpg";
-import image3 from "../assets/image3.jpg";
-import image4 from "../assets/image4.jpg";
-import image5 from "../assets/image5.jpg";
-import image6 from "../assets/image6.jpg";
-import image7 from "../assets/image7.jpg";
-import image8 from "../assets/image8.jpg";
-import image9 from "../assets/image9.jpg";
-import image10 from "../assets/image10.jpg";
-import image11 from "../assets/image11.jpg";
-import image12 from "../assets/image12.jpg";
-import image13 from "../assets/image13.jpg";
-import image14 from "../assets/image14.jpg";
-import image15 from "../assets/image15.jpg";
-import image16 from "../assets/image16.jpg";
-import image17 from "../assets/image17.jpg";
-import image18 from "../assets/image18.jpg";
-import image19 from "../assets/image19.jpg";
-import image20 from "../assets/image20.jpg";
-import image21 from "../assets/image21.jpg";
-
-const allImages = [
-    image1,
-    image2,
-    image3,
-    image4,
-    image5,
-    image6,
-    image7,
-    image8,
-    image9,
-    image10,
-    image11,
-    image12,
-    image13,
-    image14,
-    image15,
-    image16,
-    image17,
-    image18,
-    image19,
-    image20,
-    image21
-];
 
 export const AppContext = createContext({
+
     galleryImages: [],
     setGalleryImages: () => { },
+    program: "",
+    setProgram: () => { },
+    selectedOption: "",
+    setSelectedOption: () => { },
+    currentPage: 0,
+    setCurrentPage: () => { },
+    registrationData: "",
+    setRegistrationData: () => { },
+    publicId: "",
+    setPublicId: () => { },
+    selectedImage: [],
+    setSelectedImage: () => { },
+    ////////////////////////
+    boardItem: [],
+    setBoardItem: () => { },
+    boardImage: "",
+    setBoardImage: () => { },
+    boardTitle: "",
+    setBoardTitle: () => { },
+    boardText: "",
+    setBoardText: () => { },
+
+    ////////////////////////
+    loggedIn: false,
+    setLoggedIn: () => { },
+    adminData: "",
+    setAdminData: () => { },
+    ////////////////////////
+    programA: [],
+    setProgramA: () => { },
+    programB: [],
+    setProgramB: () => { },
+    ////////////////////////
+    loading: false,
+    setLoading: () => { },
+    altLoading: false,
+    setAltLoading: () => { },
+
+
 })
 
 export const ContextProvider = ({ children }) => {
-    const [galleryImages, setGalleryImages] = useState(allImages)
+
+    const [galleryImages, setGalleryImages] = useState([])
+    const [program, setProgram] = useState("")
+    const [selectedOption, setSelectedOption] = useState('');
+    const [currentPage, setCurrentPage] = useState(0);
+    const [registrationData, setRegistrationData] = useState('')
+    const [publicId, setPublicId] = useState("")
+    const [selectedImage, setSelectedImage] = useState([]);
+
+    ///////////////////////////////
+    const [boardItem, setBoardItem] = useState([])
+    const [boardImage, setBoardImage] = useState('')
+    const [boardTitle, setBoardTitle] = useState('')
+    const [boardText, setBoardText] = useState('')
+    ///////////////////////////////
+    const [loggedIn, setLoggedIn] = useState(false)
+    const [adminData, setAdminData] = useState("")
+    //////////////////////////////
+    const [programA, setProgramA] = useState([])
+    const [programB, setProgramB] = useState([])
+    /////////////////////////////
+    const [loading, setLoading] = useState(false)
+    const [altLoading, setAltLoading] = useState(false)
+
     const contextValue = {
         galleryImages,
-        setGalleryImages
+        setGalleryImages,
+        program,
+        setProgram,
+        selectedOption,
+        setSelectedOption,
+        currentPage,
+        setCurrentPage,
+        registrationData,
+        setRegistrationData,
+        publicId,
+        setPublicId,
+        selectedImage,
+        setSelectedImage,
+        ////////////////////////////
+        boardItem,
+        setBoardItem,
+        boardImage,
+        setBoardImage,
+        boardTitle,
+        setBoardTitle,
+        boardText,
+        setBoardText,
+        /////////////////
+        loggedIn,
+        setLoggedIn,
+        adminData,
+        setAdminData,
+        //////////////
+        programA,
+        setProgramA,
+        programB,
+        setProgramB,
+        ////////////////
+        loading,
+        setLoading,
+        altLoading,
+        setAltLoading
     }
+
     return (
         <AppContext.Provider value={contextValue}>
             {children}
