@@ -2,13 +2,15 @@
 @tailwind components;
 @tailwind utilities;
 
+
 :root {
-  font-family:  "Varela Round", sans-serif; 
+  
   line-height: 1.5;
   direction: rtl;
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
-  background-color: #CECECE;
+
+  /* background-color: #CECECE; */
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -20,6 +22,9 @@
     min-height: 100vh;
     margin: 0 auto;
     text-align: center;
+
+
+    
 }
 
 body {
@@ -28,8 +33,11 @@ body {
   place-items: center;
   max-width: 100dvw;
   min-height: 100vh;
-  background-color: #e6e6e6;
+  background-color: #dedede;
+  font-family:  "Varela Round", sans-serif; 
 }
-hr{
-  display: none;
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
 }

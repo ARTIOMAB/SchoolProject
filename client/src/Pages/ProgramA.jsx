@@ -1,79 +1,83 @@
-import React from 'react'
-import programA from "../assets/programA.svg"
+import React, { useEffect, useContext } from 'react';
+import axios from "axios"
+import { AppContext } from '../Context/AppContext'
+import AboutImage from "../assets/aboutImage.svg";
+
 
 function ProgramA() {
+
+    const { programA, setProgramA } = useContext(AppContext);
+
+    useEffect(() => {
+        const fetchProgramA = async () => {
+            try {
+                const result = await axios.get("http://localhost:5000/api/program/getProgramByType/programA")
+                setProgramA(result.data)
+            } catch (error) {
+                console.error("Axios error!" + error)
+            }
+        }
+        fetchProgramA()
+    }, [])
+
+    const sortedPrograms = [...programA].sort((a, b) => new Date(a.date) - new Date(b.date));
+
+    const leftColumn = [];
+    const rightColumn = [];
+
+    sortedPrograms.forEach((program, index) => {
+        if (index % 34 < 17) {
+            leftColumn.push(program);
+        } else {
+            rightColumn.push(program);
+        }
+    });
+    while (leftColumn.length < rightColumn.length) {
+        leftColumn.push(null);
+    }
+    while (rightColumn.length < leftColumn.length) {
+        rightColumn.push(null);
+    }
+    const combinedRows = leftColumn.map((leftProgram, index) => {
+        return { left: leftProgram, right: rightColumn[index] };
+    });
+
     return (
         <>
-            <main>
-                <div className='programA-container flex items-center justify-center p-[5%]'>
-                    <div className="relative overflow-hidden shadow-md rounded-lg">
-                        <h2 className='board-heading text-[2rem] p-[1%]'>תוכנית מחוננים- לוח פעילויות 2024</h2>
-                        <table className="table-auto w-full text-left">
-                            <thead className="uppercase bg-[#008080] text-[#e5e7eb]">
+            <main className='w-full h-full'>
+                <div className='absolute top-0 right-0'>
+                    <img src={AboutImage} alt="The image was not found"
+                        className="about-image relative h-[52vh] w-full object-cover opacity-[0.9] max-sm:h-[20vh] max-md:h-[30vh] max-lg:h-[30vh] max-xl:h-[30vh]" />
+                </div>
+
+                <div className="programA-container w-full h-full flex items-center justify-center p-[5%] mt-[40vh] max-sm:mt-[10vh] max-md:mt-[20vh] max-lg:mt-[20vh]">
+                    <div className="relative overflow-hidden shadow-md rounded-lg w-full">
+                        <h2 className="board-heading text-[2.5rem] p-[1%] ">תוכנית מחוננים- לוח פעילויות 2024</h2>
+                        <table className="table-auto w-full h-fullz text-left mt-[5vh]">
+                            <thead className="uppercase bg-boardColor text-[#e5e7eb]">
                                 <tr>
-                                    <td className="border text-center p-4"></td>
-                                    <td className="border text-center p-4"></td>
-                                    <td className="border text-center p-4"></td>
-                                    <td className="border text-center p-4"></td>
+                                    <td className="border text-center p-4">מקבץ ראשון</td>
+                                    <td className="border text-center p-4">מקבץ שני</td>
                                 </tr>
                             </thead>
                             <tbody className="bg-white text-gray-500 bg-[#FFFFFF] text-[#6b7280]">
-                                <tr className="py-1">
-                                    <td className="py-1 border text-center p-4">6/5/24 -כח' בניסן</td>
-                                    <td className="py-1 border text-center p-4">19/2/24 י' באדר א'</td>
-                                    <td className="py-1 border text-center p-4">18/12/23 –ו' בטבת</td>
-                                    <td className="py-1 border text-center p-4">מפגש פתיחה 20/9/23 ה' בתשרי</td>
-                                </tr>
-                                <tr className="py-1">
-                                    <td className="py-1 border text-center p-4">20/5/24-יב' באייר</td>
-                                    <td className="py-1 border text-center p-4">-26/2/24 יז' באדר א'</td>
-                                    <td className="py-1 border text-center p-4">25/12/23 -יג' בטבת
-                                    </td>
-                                    <td className="py-1 border text-center p-4">23/10/23 ח' בחשון- זום</td>
-                                </tr>
-                                <tr className="py-1">
-                                    <td className="py-1 border text-center p-4">יט' באייר 27/5/24</td>
-                                    <td className="py-1 border text-center p-4">-4/3/24 כד' באדר א'</td>
-                                    <td className="py-1 border text-center p-4">1/1/24 -כ' בטבת</td>
-                                    <td className="py-1 border text-center p-4">טו' בחשון 30/10/23 מפגש</td>
-                                </tr>
-                                <tr className="py-1">
-                                    <td className="py-1 border text-center p-4">3/6/24 כו' באייר</td>
-                                    <td className="py-1 border text-center p-4">-11/3/24 א' באדר ב'</td>
-                                    <td className="py-1 border text-center p-4">8/1/24 -כז' בטבת</td>
-                                    <td className="py-1 border text-center p-4">6/11/23 -&nbsp;כב' בחשון</td>
-                                </tr>
-                                <tr className="py-1">
-                                    <td className="py-1 border text-center p-4">10/6/24-&nbsp;ד' בסיון</td>
-                                    <td className="py-1 border text-center p-4">-18/3/24 ח' באדר ב'</td>
-                                    <td className="py-1 border text-center p-4">15/1/24-ה' בשבט</td>
-                                    <td className="py-1 border text-center p-4">13/11/23 -כט' בחשון</td>
-                                </tr>
-                                <tr className="py-1">
-                                    <td className="py-1 border text-center p-4">17/6/24 -יא' בסיון</td>
-                                    <td className="py-1 border text-center p-4">-1/4/24 כב' באדר ב'</td>
-                                    <td className="py-1 border text-center p-4">22/1/24 -יב' בשבט</td>
-                                    <td className="py-1 border text-center p-4">20/11/23 -ז' בכסלו</td>
-                                </tr>
-                                <tr className="py-1">
-                                    <td className="py-1 border text-center p-4">-24/6/24 יח' בסיון מפגש סיום שנה</td>
-                                    <td className="py-1 border text-center p-4">-8/4/24 כט' באדר ב'</td>
-                                    <td className="py-1 border text-center p-4">-29/1/24 יט' בשבט מפגש סיום מחצית</td>
-                                    <td className="py-1 border text-center p-4">27/11/23-יד' בכסלו</td>
-                                </tr>
-                                <tr className="py-1">
-                                    <td className="py-1 border text-center p-4"></td>
-                                    <td className="py-1 border text-center p-4"></td>
-                                    <td className="py-1 border text-center p-4"></td>
-                                    <td className="py-1 border text-center p-4">4/12 –כא' בכסלו מפגש לקראת חנוכה</td>
-                                </tr>
+                                {combinedRows.map((row, rowIndex) => (
+                                    <tr key={rowIndex}>
+                                        <td className="py-1 border text-center p-4">
+                                            {row.left ? `${row.left.title} - ${new Date(row.left.date).toLocaleDateString('he-IL')}` : ''}
+                                        </td>
+                                        <td className="py-1 border text-center p-4">
+                                            {row.right ? `${row.right.title} - ${new Date(row.right.date).toLocaleDateString('he-IL')}` : ''}
+                                        </td>
+                                    </tr>
+                                ))}
                             </tbody>
                         </table>
                     </div>
                 </div>
             </main>
         </>
-    )
+    );
 }
 
-export default ProgramA
+export default ProgramA;
