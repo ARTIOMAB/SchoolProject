@@ -13,7 +13,7 @@ const programRoute = require("./Routes/programRoute");
 app.use(express.static("public"));
 
 const corsOptions = {
-  origin: "*",
+  origin: true,
   credentials: true,
 };
 
