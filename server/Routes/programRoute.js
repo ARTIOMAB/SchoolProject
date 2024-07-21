@@ -12,7 +12,7 @@ router.get(
 
 router.post(
   "/createProgram",
-  authenticateRoute,
+
   programController.createProgram
 );
 
