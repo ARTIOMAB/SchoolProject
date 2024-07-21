@@ -60,8 +60,8 @@ function ProgramB() {
                         <table className="table-auto w-full text-left mt-[5vh]">
                             <thead className="uppercase bg-boardColor text-[#e5e7eb]">
                                 <tr>
-                                    <td className="border text-center p-4">מקבץ ראשון</td>
-                                    <td className="border text-center p-4">מקבץ שני</td>
+                                    <td className="border text-center p-4 text-black text-[1.2rem]">מקבץ ראשון</td>
+                                    <td className="border text-center p-4 text-black text-[1.2rem]">מקבץ שני</td>
                                 </tr>
                             </thead>
                             <tbody className="bg-white text-gray-500 bg-[#FFFFFF] text-[#6b7280]">

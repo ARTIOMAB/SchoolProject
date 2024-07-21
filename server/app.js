@@ -13,7 +13,7 @@ const programRoute = require("./Routes/programRoute");
 app.use(express.static("public"));
 
 const corsOptions = {
-  origin: "http://localhost:5173",
+  origin: "https://harish-school.onrender.com",
   credentials: true,
 };
 

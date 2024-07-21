@@ -38,7 +38,7 @@ function AdminDeleteGallery() {
         if (confirmDelete) {
             setAltLoading(true);
             try {
-                await axios.delete('http://localhost:5000/api/gallery/deleteImage', { data: { public_id } });
+                await axios.delete('https://harish-school.onrender.com/api/gallery/deleteImage', { data: { public_id } });
                 setSelectedImage((prev) => prev.filter((img) => img !== public_id));
                 toast.success("התמונה נמחקה בהצלחה")
                 setAltLoading(false);

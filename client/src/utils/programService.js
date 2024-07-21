@@ -3,7 +3,7 @@ import axios from "axios";
 export const uploadProgram = async () => {
   try {
     const response = await axios.post(
-      "http://localhost:5000/api/programs/createProgram",
+      "https://harish-school.onrender.com/api/programs/createProgram",
       {
         programType: programType,
         title: title,
@@ -20,7 +20,7 @@ export const uploadProgram = async () => {
 export const getPrograms = async (programType) => {
   try {
     const response = await axios.get(
-      `http://localhost:5000/api/programs/getProgramByType/${programType}`
+      `https://harish-school.onrender.com/api/programs/getProgramByType/${programType}`
     );
     console.log(response.data);
     return response.data;
