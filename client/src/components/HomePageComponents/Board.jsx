@@ -48,7 +48,7 @@ function Board() {
                         {boardItem.map((item) => (
                             <div key={item._id} className="card bg-white rounded-t-[10px] shadow-md">
                                 <img
-                                    src={`http://localhost:5000/images/${item.image}`}
+                                    src={`https://harish-school.onrender.com/images/${item.image}`}
                                     alt={item.title}
                                     className="h-40 w-full object-cover mb-4 rounded-t-[10px]"
                                 />

@@ -1,13 +1,1 @@
-import React from "react";
-
-const PostImages = ({ imageUrls }) => {
-  return (
-    <div className="post-images">
-      {imageUrls.map((url, index) => (
-        <img key={index} src={url} alt={`Image ${index}`} />
-      ))}
-    </div>
-  );
-};
-
-export default PostImages;
+harishmoh

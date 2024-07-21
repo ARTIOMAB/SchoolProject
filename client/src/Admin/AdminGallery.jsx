@@ -67,7 +67,7 @@ function AdminGallery() {
     const onSubmit = async (data) => {
         const imageUrl = await uploadImage(data.galleryImage[0], 'unsigned_preset_gallery');
         try {
-            const response = await axios.post('http://localhost:5000/api/gallery/galleryImages', { galleryImage: imageUrl });
+            const response = await axios.post('https://harish-school.onrender.com/api/gallery/galleryImages', { galleryImage: imageUrl });
             setGalleryImages((prev) => [...prev, imageUrl]);
             console.log(response.data);
             reset()

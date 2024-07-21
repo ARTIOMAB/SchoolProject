@@ -5,7 +5,7 @@ axios.defaults.withCredentials = true;
 export const login = async (credentials) => {
   try {
     const response = await axios.post(
-      `${import.meta.env.VITE_API_URL}/admin/login`,
+      `https://harish-school.onrender.com/admin/login`,
       credentials
     );
 

@@ -9,7 +9,7 @@ export const uploadBoard = async (data) => {
     console.log(formData);
 
     const response = await axios.post(
-      `${import.meta.env.VITE_API_URL}/api/board/createBoard`,
+      `https://harish-school.onrender.com/api/board/createBoard`,
       formData,
       {
         headers: {

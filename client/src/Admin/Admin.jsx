@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from 'react'
+import React, { useContext, useEffect } from 'react'
 import { AppContext } from '../Context/AppContext'
 import { useNavigate } from 'react-router-dom'
 import BackGround from "../assets/BackGround.svg"

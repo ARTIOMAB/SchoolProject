@@ -3,7 +3,7 @@ import axios from "axios";
 export const fetchBoard = async () => {
   try {
     const response = await axios.get(
-      `${import.meta.env.VITE_API_URL}/api/board/getBoardItems`
+      `https://harish-school.onrender.com/api/board/getBoardItems`
     );
     return response;
   } catch (error) {
@@ -17,7 +17,7 @@ export const fetchBoard = async () => {
 export const findBoardItem = async (searchTerm) => {
   try {
     const response = await axios.get(
-      `${import.meta.env.VITE_API_URL}/api/board/findBoardItem`,
+      `https://harish-school.onrender.com/api/board/findBoardItem`,
       {
         params: { searchTerm: searchTerm },
       }
@@ -32,7 +32,7 @@ export const findBoardItem = async (searchTerm) => {
 export const updatedBoardItem = async (id, formData) => {
   try {
     const response = await axios.put(
-      `${import.meta.env.VITE_API_URL}/api/board/updateBoard/${id}`,
+      `https://harish-school.onrender.com/api/board/updateBoard/${id}`,
       formData,
       {
         headers: {
@@ -49,7 +49,7 @@ export const updatedBoardItem = async (id, formData) => {
 export const deleteBoardItem = async (id) => {
   try {
     const response = await axios.delete(
-      `${import.meta.env.VITE_API_URL}/api/board/deleteBoard/${id}`
+      `https://harish-school.onrender.com/api/board/deleteBoard/${id}`
     );
     return response.data;
   } catch (error) {

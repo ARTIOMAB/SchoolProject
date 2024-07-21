@@ -19,7 +19,7 @@ function AdminProgram() {
 
         try {
             setLoading(true);
-            const result = await axios.post("http://localhost:5000/api/program/createProgram", {
+            const result = await axios.post("https://harish-school.onrender.com/api/program/createProgram", {
                 programType: data.programType,
                 title: data.title,
                 date: data.date,

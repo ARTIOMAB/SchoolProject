@@ -53,11 +53,11 @@ function ProgramA() {
                 <div className="programA-container w-full h-full flex items-center justify-center p-[5%] mt-[40vh] max-sm:mt-[10vh] max-md:mt-[20vh] max-lg:mt-[20vh]">
                     <div className="relative overflow-hidden shadow-md rounded-lg w-full">
                         <h2 className="board-heading text-[2.5rem] p-[1%] ">תוכנית מחוננים- לוח פעילויות 2024</h2>
-                        <table className="table-auto w-full h-fullz text-left mt-[5vh]">
+                        <table className="table-auto w-full h-full text-left mt-[5vh]">
                             <thead className="uppercase bg-boardColor text-[#e5e7eb]">
                                 <tr>
-                                    <td className="border text-center p-4">מקבץ ראשון</td>
-                                    <td className="border text-center p-4">מקבץ שני</td>
+                                    <td className="border text-center p-4 text-black text-[1.2rem]">מקבץ ראשון</td>
+                                    <td className="border text-center p-4 text-black text-[1.2rem]">מקבץ שני</td>
                                 </tr>
                             </thead>
                             <tbody className="bg-white text-gray-500 bg-[#FFFFFF] text-[#6b7280]">

@@ -17,10 +17,10 @@ function AdminDeleteProgram() {
         try {
             setAltLoading(true);
             if (data.deleteType === "all") {
-                await axios.delete(`http://localhost:5000/api/program/deleteAllProgramsByType/${data.programType}`);
+                await axios.delete(`https://harish-school.onrender.com/api/program/deleteAllProgramsByType/${data.programType}`);
                 toast.success("כל התוכניות נמחקו בהצלחה");
             } else if (data.deleteType === "last") {
-                await axios.delete(`http://localhost:5000/api/program/deleteLastProgramByType/${data.programType}`);
+                await axios.delete(`https://harish-school.onrender.com/api/program/deleteLastProgramByType/${data.programType}`);
                 toast.success("התוכנית האחרונה נמחקה בהצלחה");
             }
             setAltLoading(false);
