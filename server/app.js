@@ -13,7 +13,10 @@ const programRoute = require("./Routes/programRoute");
 app.use(express.static("public"));
 
 const corsOptions = {
-  origin: "https://harish-school.onrender.com",
+  origin: [
+    "https://harish-school.onrender.com",
+    "https://669d4a85ec4953248eb32f95--idyllic-rabanadas-eff3cd.netlify.app",
+  ],
   credentials: true,
 };
 
