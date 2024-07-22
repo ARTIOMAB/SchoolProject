@@ -17,7 +17,6 @@ function AdminDeleteGallery() {
         setAltLoading(true);
         try {
             const res = await allGalleryImages();
-            console.log(res)
             setSelectedImage(res.data.galleryImage);
             setAltLoading(false);
         } catch (error) {

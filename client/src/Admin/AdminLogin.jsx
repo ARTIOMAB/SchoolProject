@@ -2,6 +2,7 @@ import React, { useContext, useEffect } from 'react'
 import { useForm } from 'react-hook-form'
 import { useNavigate } from "react-router-dom"
 import { toast } from "react-toastify";
+import { ColorRing } from 'react-loader-spinner'
 import { login } from "../utils/authService"
 import { AppContext } from '../Context/AppContext'
 import BackGround from "../assets/BackGround.svg"
@@ -13,26 +14,28 @@ function AdminLogin() {
 
     const navigate = useNavigate()
 
-    const { setLoggedIn, setAdminData, loggedIn } = useContext(AppContext)
+    const { setLoggedIn, setAdminData, loading, setLoading } = useContext(AppContext)
 
     const onSubmit = async (data) => {
+        setLoading(true)
         try {
             const res = await login(data)
-            console.log(res.data)
             setAdminData(res.data)
             setLoggedIn(true)
             toast.success("התחברת בהצלחה")
             localStorage.setItem("loggedIn", "true")
             navigate("/admin")
+            setLoading(false)
         } catch (error) {
-            console.log(error)
+            console.error(error)
             toast.error("משהו השתבש יש לנסות שוב")
+            setLoading(false)
         }
         reset()
     }
 
     useEffect(() => {
-        console.log(loggedIn)
+        console.log("logged in")
     }, [setLoggedIn])
 
 
@@ -69,8 +72,12 @@ function AdminLogin() {
                                         {...register("password", { required: true, minLength: 4 })} />
                                 </div>
                                 {errors.password && <small id="passwordHelp" className="form-text text-red">ערך חובה.</small>}
+                                {loading ? (
+                                    <ColorRing visible={true} height="80" width="80" ariaLabel="blocks-loading" wrapperClass="blocks-wrapper" colors={['#e15b64', '#f47e60', '#f8b26a', '#abbd81', '#849b87']} />
+                                ) : (
+                                    <button type="submit" className="btn btn-primary">היכנס</button>
+                                )}
 
-                                <button type="submit" className="btn btn-primary">היכנס</button>
                             </form>
                         </div>
 

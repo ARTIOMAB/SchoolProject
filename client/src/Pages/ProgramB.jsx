@@ -11,7 +11,7 @@ function ProgramB() {
     useEffect(() => {
         const fetchProgramB = async () => {
             try {
-                const result = await axios.get("http://localhost:5000/api/program/getProgramByType/programB")
+                const result = await axios.get("https://harish-school.onrender.com/api/program/getProgramByType/programB")
                 setProgramB(result.data)
             } catch (error) {
                 console.error("Axios error!" + error)

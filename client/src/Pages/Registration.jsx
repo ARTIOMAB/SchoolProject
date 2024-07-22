@@ -75,7 +75,6 @@ function Registration() {
 
   const handleChange = (event) => {
     setSelectedOption(event.target.value);
-    // console.log(event.target.value)
   };
 
 

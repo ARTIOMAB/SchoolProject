@@ -37,8 +37,6 @@ function AdminGallery() {
         setLoading(true);
         try {
             const data = new FormData();
-
-            console.log(data)
             data.append('file', file);
             data.append('upload_preset', preset);
 
@@ -50,8 +48,6 @@ function AdminGallery() {
             const result = await response.json();
             setLoading(false);
             toast.success("התמונה נשמרה בהצלחה")
-            console.log(result.secure_url)
-            console.log(result)
             setPublicId(result.public_id)
             return result.secure_url;
 
@@ -69,7 +65,6 @@ function AdminGallery() {
         try {
             const response = await axios.post('https://harish-school.onrender.com/api/gallery/galleryImages', { galleryImage: imageUrl });
             setGalleryImages((prev) => [...prev, imageUrl]);
-            console.log(response.data);
             reset()
         } catch (error) {
             console.error('Error uploading image URL to server', error);

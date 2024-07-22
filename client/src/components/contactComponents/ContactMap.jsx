@@ -29,15 +29,15 @@ function ContactMap() {
                     colors={['#e15b64', '#f47e60', '#f8b26a', '#abbd81', '#849b87']}
                 />
             ) : (
-                <div className='contact-map-container w-full flex items-center mt-[15vh] mb-[10vh] p-[1%] max-sm:mt-[10vh]'>
-                    <div className='contact-map-box w-[90%] h-[40vh] m-auto max-sm:h-[50vh]'>
+                <div className='contact-map-container w-full flex items-center mt-[15vh] mb-[10vh] p-[1%] max-sm:mt-[10vh] '>
+                    <div className='contact-map-box w-[90%] h-[40vh] m-auto max-sm:h-[50vh] '>
                         <APIProvider apiKey={import.meta.env.VITE_GOOGLE_MAP_API_KEY}
                             onLoad={mapLoading}>
 
                             <Map
                                 style={{ width: '100%', height: '100%' }}
-                                center={position}
-                                zoom={15}
+                                defaultCenter={position}
+                                defaultZoom={14}
                                 mapId={import.meta.env.VITE_GOOGLE_MAP_CLIENT_ID}
 
                             >

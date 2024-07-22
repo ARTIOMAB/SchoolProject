@@ -1,4 +1,4 @@
-import React, { useContext, useState, useEffect } from 'react'
+import React, { useContext } from 'react'
 import { useForm } from "react-hook-form"
 import { toast } from "react-toastify";
 import { AppContext } from '../Context/AppContext';
@@ -9,18 +9,16 @@ import AdminDeleteBoard from './AdminDeleteBoard';
 
 function AdminBoard() {
 
-    const { setBoardItem, loading, setLoading, boardItem } = useContext(AppContext);
+    const { setBoardItem, setLoading } = useContext(AppContext);
 
     const { register, handleSubmit, reset, formState: { errors } } = useForm()
 
     const onSubmit = async (data) => {
 
         setLoading(true);
-        console.log(data);
         try {
             const res = await uploadBoard(data);
             setBoardItem(prevItems => [...prevItems, res]);
-            console.log(res);
             setLoading(false);
             toast.success("המודעה נוצרה בהצלחה")
 
@@ -29,11 +27,9 @@ function AdminBoard() {
             console.error("Uploading board failed", error);
             toast.error("משהו השתבש יש לנסות שוב")
         } {
-
             reset();
         }
     };
-    console.log(boardItem)
 
     return (
         <>
